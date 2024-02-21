@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Trigger } from './Dropdown.Trigger';
 import { DropdownMenu } from './Dropdown.Menu';
+import { useService } from '../hooks/useService';
+import { fetchUsers } from '../utils';
 
 interface Item {
   icon: string;
@@ -33,6 +35,8 @@ const Dropdown = ({ items }: DropdownProps) => {
     setSelectedItem,
     selectedIndex,
   } = useDropdown(items);
+
+  const { loading, error, data } = useService(fetchUsers);
 
   return (
     // <div className='dropdown'>
