@@ -73,3 +73,40 @@ const Dropdown = ({ items }: DropdownProps) => {
     </div>
   );
 };
+
+function Item({ icon, text, description }: Item) {
+  return (
+    <div className='item-container'>
+      <img src={icon} alt={text} />
+      <div className='details'>
+        <div>{text}</div>
+        <small>{description}</small>
+      </div>
+    </div>
+  );
+}
+
+function MenuCheckbox({ icon, text, description }: Item) {
+  return (
+    <div className='item-container'>
+      <img src={icon} alt={text} />
+      <div className='details'>
+        <div>{text}</div>
+        <small>{description}</small>
+      </div>
+    </div>
+  );
+}
+
+Dropdown.Item = Item;
+Dropdown.MenuCheckbox = MenuCheckbox;
+
+export default Dropdown;
+
+// Example usage:
+{
+  /* <Dropdown>
+  <Dropdown.Item />
+  <Dropdown.MenuCheckbox />
+</Dropdown>; */
+}
